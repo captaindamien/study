@@ -1,5 +1,4 @@
-user_message = input("Введите любые слова: ").split()
-word = 0
+user_message = input("Введите любые слова через пробел: ").split()
 string_number = 0
 
 for word in user_message:

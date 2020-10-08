@@ -1,7 +1,7 @@
-user_lst = input().split()
-i = 0
+user_lst = input("Введите любое количество чисел через пробел: ").split()
+element = 0
 
-for i in range(2, len(user_lst)-1, 2):
-    user_lst[i], user_lst[i+1] = user_lst[i+1], user_lst[i]
+for element in range(0, len(user_lst) - 1, 2):
+    user_lst[element], user_lst[element + 1] = user_lst[element + 1], user_lst[element]
 
 print(user_lst)
