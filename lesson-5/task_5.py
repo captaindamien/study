@@ -8,6 +8,7 @@ def write_numbers(file_name, file_arg, u_input):
     with open(file_name, file_arg) as numbers_file:
         for number in u_input:
             numbers_file.write(f"{number} ")
+    print(sum_numbers(user_numbers))
 
 
 def sum_numbers(num):
@@ -16,4 +17,3 @@ def sum_numbers(num):
 
 user_numbers = input("Введите числа через пробел: ").split()
 write_numbers("task_5_file.txt", "w", user_numbers)
-print(sum_numbers(user_numbers))
