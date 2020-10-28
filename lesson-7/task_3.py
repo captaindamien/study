@@ -42,7 +42,7 @@ class Cell:
 
     def make_order(self, count):
         lst = []
-        for element in range(len(range(int(self.n // count)))):
+        for element in range(len(range(self.n // count))):
             lst.append('*' * count)
         if self.n % count != 0:
             lst.append('*' * (self.n % count))
