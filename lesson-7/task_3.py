@@ -41,22 +41,20 @@ class Cell:
         return f"Общая клетка из деления двух: {self.n // other.n}"
 
     def make_order(self, count):
-        lst = []
+        row = ""
         for element in range(len(range(self.n // count))):
-            lst.append('*' * count)
+            row += ('*' * count + '\n')
         if self.n % count != 0:
-            lst.append('*' * (self.n % count))
-        return lst
+            row += ('*' * (self.n % count) + '\n')
+        return row
 
 
 first_cell = Cell(147)
 second_cell = Cell(11)
-row = first_cell.make_order(10)
 
 print(first_cell + second_cell)
 print(first_cell - second_cell)
 print(first_cell * second_cell)
 print(first_cell / second_cell)
 
-for el in row:
-    print(el)
+print(first_cell.make_order(10))
