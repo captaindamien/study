@@ -38,11 +38,11 @@ class Cell:
         return f"Общая клетка из умножения двух: {self.n * other.n}"
 
     def __truediv__(self, other):
-        return f"Общая клетка из деления двух: {self.n // other.n}"
+        return f"Общая клетка из деления двух: {int(self.n / other.n)}"
 
     def make_order(self, count):
         row = ""
-        for element in range(len(range(self.n // count))):
+        for element in range(len(range(int(self.n / count)))):
             row += ('*' * count + '\n')
         if self.n % count != 0:
             row += ('*' * (self.n % count) + '\n')
