@@ -8,16 +8,21 @@
 реализовать абстрактные классы для основных классов проекта, проверить на практике работу декоратора @property.
 """
 from abc import ABC, abstractmethod
+from random import randint
 
 
 class Cloth(ABC):
+    @property
     @abstractmethod
-    def coat_formula(self):
+    def formula(self):
         pass
 
-    @abstractmethod
-    def costume_formula(self):
-        pass
+    @staticmethod
+    def sum_cloth(lst):
+        result = 0
+        for el in lst:
+            result += el.formula
+        return round(result, 2)
 
 
 class Coat(Cloth):
@@ -25,11 +30,8 @@ class Coat(Cloth):
         self.v = v
 
     @property
-    def coat_formula(self):
-        return f"Кол-во ткани требуемое для пальто:{self.v / 6.5 + 0.5: .2f}м"
-
-    def costume_formula(self):
-        pass
+    def formula(self):
+        return round(self.v / 6.5 + 0.5, 2)
 
 
 class Costume(Cloth):
@@ -37,14 +39,14 @@ class Costume(Cloth):
         self.h = h
 
     @property
-    def costume_formula(self):
-        return f"Кол-во ткани требуемое для костюма:{2 * self.h + 0.3: .2f}м"
-
-    def coat_formula(self):
-        pass
+    def formula(self):
+        return 2 * self.h + 0.3
 
 
-size = Costume(2)
-print(size.costume_formula)
-height = Coat(6)
-print(height.coat_formula)
+#  сгенерировал случайный размерный ряд для проверки
+common_cloth = []
+for count in range(0, 4, 2):
+    common_cloth.append(Costume(randint(1, 15)))
+    common_cloth.append(Coat(randint(1, 15)))
+
+print(Cloth.sum_cloth(common_cloth))
